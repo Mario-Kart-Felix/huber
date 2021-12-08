@@ -1,10 +1,10 @@
 # This is generated. Don't modify.
 ---
 name: nerdctl
-description: Docker-compatible CLI for containerd
+description: "contaiNERD CTL - Docker-compatible CLI for containerd, with support for Compose, Rootless, eStargz, OCIcrypt, IPFS, ..."
 source:
   Github:
-    owner: AkihiroSuda
+    owner: containerd
     repo: nerdctl
 targets:
   - LinuxAmd64:

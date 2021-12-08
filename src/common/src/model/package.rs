@@ -5,13 +5,13 @@ use std::path::PathBuf;
 use std::str::FromStr;
 use std::{env, fmt};
 
-use hubcaps::releases::Release as HubcapsRelease;
+use hubcaps_ex::releases::Release as HubcapsRelease;
 use log::{error, warn};
 use regex::Regex;
 use semver::Version;
 use serde::{Deserialize, Serialize};
 
-use crate::model::release::{ReleaseKind, VecExtensionTrait};
+use crate::model::release::{ReleaseKind, SortModelTrait};
 use crate::result::Result;
 use crate::str::VersionCompareTrait;
 
@@ -60,6 +60,7 @@ pub enum PackageTargetType {
     LinuxArm64(PackageManagement),
     LinuxArm32(PackageManagement),
     MacOS(PackageManagement),
+    MacOSArm64(PackageManagement),
     Windows(PackageManagement),
 }
 
@@ -297,8 +298,8 @@ impl From<HubcapsRelease> for GithubPackage {
     }
 }
 
-impl From<hubcaps::releases::Asset> for GithubAsset {
-    fn from(a: hubcaps::releases::Asset) -> Self {
+impl From<hubcaps_ex::releases::Asset> for GithubAsset {
+    fn from(a: hubcaps_ex::releases::Asset) -> Self {
         GithubAsset {
             url: a.url,
             browser_download_url: a.browser_download_url,
@@ -351,7 +352,7 @@ impl From<Package> for PackageSummary {
     }
 }
 
-impl VecExtensionTrait for Vec<PackageSummary> {
+impl SortModelTrait for Vec<PackageSummary> {
     fn sort_by_version(&mut self) {
         self.sort_by(|x, y| {
             y.version
@@ -360,5 +361,9 @@ impl VecExtensionTrait for Vec<PackageSummary> {
                 .cmp_version(x.version.as_ref().unwrap())
                 .unwrap()
         });
+    }
+
+    fn sort_by_name(&mut self) {
+        self.sort_by(|x, y| x.name.cmp(&y.name))
     }
 }

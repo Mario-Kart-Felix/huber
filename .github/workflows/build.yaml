@@ -43,27 +43,27 @@ jobs:
       - name: Setup, Test, Build
         run: make build-multiarch
 
-  build-linux-armv7:
-    name: Build for Linux ARMv7
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
-
-      - name: Set up Docker Buildx
-        id: buildx
-        uses: docker/setup-buildx-action@v1
-        with:
-          version: latest
-
-      - name: Available platforms
-        run: echo ${{ steps.buildx.outputs.platforms }}
-
-      - name: Setup, Test, Build
-        run: PLATFORMS=linux/arm/v7 make build-multiarch
+#  build-linux-armv7:
+#    name: Build for Linux ARMv7
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v2
+#
+#      - name: Set up QEMU
+#        uses: docker/setup-qemu-action@v1
+#
+#      - name: Set up Docker Buildx
+#        id: buildx
+#        uses: docker/setup-buildx-action@v1
+#        with:
+#          version: latest
+#
+#      - name: Available platforms
+#        run: echo ${{ steps.buildx.outputs.platforms }}
+#
+#      - name: Setup, Test, Build
+#        run: PLATFORMS=linux/arm/v7 make build-multiarch
 
   build-macos:
     name: Build for MacOS
@@ -87,6 +87,15 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      # Need to use this github action plugin to build vcpkg instead of using the one builtin in github action infra.
+      # It will cause the following vcpkg packages build failed
+      # Ref: https://github.com/OSSystems/compress-tools-rs/blob/master/.github/workflows/windows.yml#L28
+      - name: Install vcpkg
+        uses: lukka/run-vcpkg@v7
+        with:
+          setupOnly: true
+          vcpkgGitCommitId: ec6fe06e8da05a8157dc8581fa96b36b571c1bd5 # 2020.11-1
 
       - name: Setup build environment
         run: ./hack/windows/setup-dev.ps1

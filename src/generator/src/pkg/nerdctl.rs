@@ -5,7 +5,7 @@ pub fn release() -> Package {
     Package {
         name: "nerdctl".to_string(),
         source: PackageSource::Github {
-            owner: "AkihiroSuda".to_string(),
+            owner: "containerd".to_string(),
             repo: "nerdctl".to_string(),
         },
         detail: None,

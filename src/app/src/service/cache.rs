@@ -13,9 +13,9 @@ use huber_common::model::config::{
 };
 use huber_common::model::package::{Package, PackageIndex};
 use huber_common::model::repo::Repository;
-use huber_common::progress::ProgressBar;
-use huber_common::progress::ProgressTrait;
 use huber_common::result::Result;
+use libcli_rs::progress::ProgressBar;
+use libcli_rs::progress::ProgressTrait;
 
 use crate::component::github::{GithubClient, GithubClientTrait};
 use crate::service::repo::{RepoAsyncTrait, RepoService, RepoTrait};
@@ -210,7 +210,7 @@ impl CacheAsyncTrait for CacheService {
             client.clone("innobead", "huber", dir.clone()).await?;
         );
 
-        println!("Updating unmanaged repos");
+        progress!("Updating unmanaged repos", ());
 
         let repo_service = self.container.get::<RepoService>().unwrap();
         for repo in repo_service.list()? {

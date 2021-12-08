@@ -12,8 +12,9 @@ use crate::model::package::{
 use crate::result::Result;
 use crate::str::VersionCompareTrait;
 
-pub trait VecExtensionTrait {
+pub trait SortModelTrait {
     fn sort_by_version(&mut self);
+    fn sort_by_name(&mut self);
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -47,10 +48,14 @@ pub enum ReleaseKind {
 
 impl Release {
     pub fn compare(&self, pkg: &Release) -> Result<Ordering> {
-        let v1 = Version::from_str(self.version.trim_start_matches("v"))?;
-        let v2 = Version::from_str(pkg.version.trim_start_matches("v"))?;
+        return if Version::parse(&self.version).is_ok() {
+            let v1 = Version::from_str(self.version.trim_start_matches("v"))?;
+            let v2 = Version::from_str(pkg.version.trim_start_matches("v"))?;
 
-        Ok(v1.cmp(&v2))
+            Ok(v1.cmp(&v2))
+        } else {
+            Ok(self.version.cmp(&pkg.version))
+        };
     }
 }
 
@@ -66,8 +71,8 @@ impl Display for Release {
     }
 }
 
-impl From<hubcaps::releases::Release> for Release {
-    fn from(r: hubcaps::releases::Release) -> Self {
+impl From<hubcaps_ex::releases::Release> for Release {
+    fn from(r: hubcaps_ex::releases::Release) -> Self {
         let release_kind = if r.draft {
             ReleaseKind::Draft
         } else if r.prerelease {
@@ -121,8 +126,12 @@ impl From<hubcaps::releases::Release> for Release {
     }
 }
 
-impl VecExtensionTrait for Vec<Release> {
+impl SortModelTrait for Vec<Release> {
     fn sort_by_version(&mut self) {
         self.sort_by(|x, y| y.version.cmp_version(&x.version).unwrap());
+    }
+
+    fn sort_by_name(&mut self) {
+        self.sort_by(|x, y| x.name.cmp(&y.name));
     }
 }

@@ -1,6 +1,8 @@
+[![crates.io](https://img.shields.io/crates/v/huber.svg)](https://crates.io/crates/huber)
+
 ![huber in action](./doc/huber.png)
 
-**Huber** is to simplify the package management from GitHub projects with a builtin awesome list (live updating) of popular projects. It also supports *repository* feature for managing the package installation from your perosonal Github project. Please check the complete introduction as below.
+**Huber** is to simplify the package management from GitHub projects with a builtin awesome list (live updating) of popular projects. It also supports *repository* feature for managing the package installation from your personal Github project. Please check the complete introduction as below.
 
 > `Huber is a (new) tool for easy installation of dev/ops CLI tools directly from GitHub. No more trawling the releases pages!` introduced by [Coffee and Cloud Native - 88](https://www.youtube.com/watch?v=LgA6hpKdncw)
 
@@ -58,6 +60,9 @@ For official releases, please install the latest release as below command. After
 But, if it does not work as expected, please remember to add `$HOME/.huber/bin` in the environment path, so `huber` will be looked up correctly. 
 
 ```console
+# Cargo
+❯ cargo install huber
+
 # Linux
 ❯ curl -sfSL https://raw.githubusercontent.com/innobead/huber/master/hack/install.sh | bash
 
@@ -84,29 +89,6 @@ For Windows users, follow below steps to prepare the environment.
 3. Run `./hack/windows/setup-dev.ps1`
 
 # Tutorials
-
-- [Managing packages](#managing-packages)
-    - [Searching packages](#searching-packages)
-    - [Searching package versions](#searching-package-versions)
-    - [Installing the package](#installing-the-package)
-    - [Updating the package](#updating-the-package)
-    - [Uninstalling the package](#uninstalling-the-package)
-    - [Setting the current installed package version](#setting-the-current-installed-package-version)
-    - [Showing the package info](#showing-the-package-info)
-    - [Showing the installed package version info](#showing-the-installed-package-version-info)
-    - [Flushing non-current packages](#flushing-non-current-packages)
-- [Managing repositories](#managing-repositories)
-    - [Adding a repository](#adding-a-repository)
-    - [Listing repositories](#listing-repositories)
-    - [Installing the package from the repository](#installing-the-package-from-the-repository)
-    - [Deleting a repository](#deleting-a-repository)
-- [Managing configuration](#managing-configuration)
-    - [Updating the configuration](#updating-the-configuration)
-    - [Showing the configuration](#showing-the-configuration)
-- [Others](#others)
-    - [Resetting Huber](#resetting-huber)
-    - [Self updating Huber](#self-updating-huber)
-
 
 > Note: 
 > - If encountering github access rate limitation, suggest to set **GITHUB_TOKEN** environment variable when running the huber command, 
@@ -516,7 +498,7 @@ Removing k3s (version: v1.18.10+k3s2, source: github)
 ## Managing repositories
 
 ### Adding a repository
-The repository can be private or publice. If it's private, make sure you have the permission to access via the authroized SSH private key.
+The repository can be private or public. If it's private, make sure you have the permission to access via the authroized SSH private key.
 
 ```console
 ❯ huber repo add 3rdparty-repo https://github.com/innobead/huber_unmanaged_demo
@@ -615,7 +597,7 @@ Error: No update available: 404 Not Found: Not Found
 
 # Contribution
 
-If you would like to add some useful tools in the builtin manged packages list, please have a PR as below steps.
+If you would like to add some useful tools in the builtin managed packages list, please have a PR as below steps.
 
 1. Add a new package module in `src/generator/src/pkg`
 2. Update the added package in `src/generator/src/build.rs`

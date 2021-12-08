@@ -2,11 +2,11 @@ use std::fs::{read_dir, remove_dir_all, remove_file};
 use std::sync::Arc;
 
 use async_trait::async_trait;
+use log::info;
 use semver::Version;
-
-use huber_common::model::config::{Config, ConfigPath};
 use simpledi_rs::di::{DIContainer, DIContainerExtTrait, DependencyInjectTrait};
 
+use huber_common::model::config::{Config, ConfigPath};
 use huber_common::result::Result;
 
 use crate::service::package::PackageService;
@@ -53,10 +53,22 @@ impl UpdateTrait for UpdateService {
         let bin_dir_path = config.bin_dir()?;
         if bin_dir_path.exists() {
             for entry in read_dir(bin_dir_path)? {
-                let entry = entry?;
-                let path = entry.path();
+                let path = entry?.path();
 
                 if path.file_name().unwrap().to_str().unwrap() == "huber" {
+                    info!("Keeping huber executable");
+
+                    let option = fs_extra::file::CopyOptions::new();
+                    let temp_path = path.parent().unwrap().join("huber_temp");
+
+                    info!("Coping {:?} to {:?}", &path, &temp_path);
+                    let _ = remove_file(&temp_path);
+                    fs_extra::file::copy(&path, &temp_path, &option)?;
+
+                    info!("Moving {:?} to {:?}", &temp_path, &path);
+                    let _ = remove_file(&path);
+                    fs_extra::file::move_file(&temp_path, &path, &option)?;
+
                     continue;
                 }
 
@@ -86,7 +98,7 @@ impl UpdateAsyncTrait for UpdateService {
         match release_service.get_latest(&pkg).await {
             Err(e) => Err(anyhow!("No update available: {:?}", e)),
             Ok(r) => Ok((
-                Version::parse(&r.version) > Version::parse(current_version),
+                Version::parse(r.version.trim_start_matches("v")) > Version::parse(current_version),
                 r.version,
             )),
         }

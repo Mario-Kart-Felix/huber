@@ -16,7 +16,7 @@ help:
 setup-dev: ## Setup development environment
 	$(CURDIR)/hack/setup-dev.sh
 
-.PHONY: buildk
+.PHONY: build
 build: fmt ## Build binaries
 	cargo build $(CARGO_OPTS) --workspace --exclude=huber-generator
 
@@ -52,7 +52,7 @@ fix:  ## Fix code
 .PHONY: generate
 generate: ## Generate managed package list
 	@echo "! Must have GITHUB_TOKEN to automatically generate package description"
-	GITHUB_TOKEN=$(GITHUB_TOKEN) cargo build --manifest-path=./src/generator/Cargo.toml
+	GITHUB_TOKEN=$(GITHUB_TOKEN) cargo build -vv --manifest-path=./src/generator/Cargo.toml
 	GITHUB_KEY=$(GITHUB_KEY) $(MAKE) build && \
 	(MANAGED_PKG_ROOT_DIR=$(CURDIR)/generated $(CURDIR)/target/debug/huber search | xargs -0 $(CURDIR)/hack/generate-packages.md.sh)
 
@@ -79,3 +79,9 @@ HUBER ?= huber
 .PHONY: verify
 verify: ## Verify Huber commands via the local package generated folder
 	MANAGED_PKG_ROOT_DIR=$(MANAGED_PKG_ROOT_DIR) $(HUBER) $(CMD)
+
+.PHONY: publish
+publish: ## Publish Huber to crates.io
+	cargo publish $(CARGO_OPTS) --manifest-path=./src/common/Cargo.toml || true
+	sleep 10 && cargo publish $(CARGO_OPTS) --manifest-path=./src/procmacro/Cargo.toml || true
+	sleep 10 && cargo publish $(CARGO_OPTS) --manifest-path=./src/app/Cargo.toml || true

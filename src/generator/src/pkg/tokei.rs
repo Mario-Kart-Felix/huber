@@ -12,7 +12,31 @@ pub fn release() -> Package {
         targets: vec![
             PackageTargetType::LinuxAmd64(PackageManagement {
                 artifact_templates: vec![
-                    "{version}/tokei-x86_64-unknown-linux-musl.tar.gz".to_string()
+                    "{version}/tokei-x86_64-unknown-linux-gnu.tar.gz".to_string()
+                ],
+                executable_templates: None,
+                executable_mappings: None,
+                install_commands: None,
+                uninstall_commands: None,
+                upgrade_commands: None,
+                tag_version_regex_template: None,
+                scan_dirs: None,
+            }),
+            PackageTargetType::LinuxArm64(PackageManagement {
+                artifact_templates: vec![
+                    "{version}/tokei-aarch64-unknown-linux-gnu.tar.gz".to_string()
+                ],
+                executable_templates: None,
+                executable_mappings: None,
+                install_commands: None,
+                uninstall_commands: None,
+                upgrade_commands: None,
+                tag_version_regex_template: None,
+                scan_dirs: None,
+            }),
+            PackageTargetType::LinuxArm32(PackageManagement {
+                artifact_templates: vec![
+                    "{version}/tokei-armv7-unknown-linux-gnueabihf.tar.gz".to_string()
                 ],
                 executable_templates: None,
                 executable_mappings: None,

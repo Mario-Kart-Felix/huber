@@ -1,7 +1,7 @@
 # This is generated. Don't modify.
 ---
 name: kpt
-description: ~
+description: "A Git-native, schema-aware, extensible client-side tool for packaging, customizing, validating, and applying Kubernetes resources."
 source:
   Github:
     owner: GoogleContainerTools

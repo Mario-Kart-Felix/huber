@@ -6,11 +6,12 @@ use std::io::Write;
 use std::path::Path;
 use std::{env, fs};
 
+use hubcaps_ex::{Credentials, Github};
+
 use huber_common::model::package::{Package, PackageIndex, PackageSource};
 use huber_common::result::Result;
 
 use crate::pkg::*;
-use hubcaps::{Credentials, Github};
 
 mod pkg;
 
@@ -73,6 +74,8 @@ async fn main() -> Result<()> {
 fn releases() -> Vec<Package> {
     vec![
         // tools
+        onefetch::release(),
+        renote::release(),
         gh::release(),
         dasel::release(),
         bat::release(),
@@ -116,6 +119,34 @@ fn releases() -> Vec<Package> {
         terrascan::release(),
         tecli::release(),
         nerdctl::release(),
+        zoxide::release(),
+        dust::release(),
+        pueue::release(),
+        coreutils::release(),
+        hugo::release(),
+        typos::release(),
+        zellij::release(),
+        xh::release(),
+        loc::release(),
+        choose::release(),
+        delta::release(),
+        dog::release(),
+        dua_cli::release(),
+        skim::release(),
+        hexyl::release(),
+        lsd::release(),
+        fnm::release(),
+        frum::release(),
+        nat::release(),
+        sad::release(),
+        sd::release(),
+        navi::release(),
+        tealdeer::release(),
+        bottom::release(),
+        grex::release(),
+        codeql::release(),
+        viddy::release(),
+        cosign::release(),
         // infra
         pulumi::release(),
         chisel::release(),
@@ -126,6 +157,7 @@ fn releases() -> Vec<Package> {
         doctl::release(),
         zola::release(),
         nushell::release(),
+        dolt::release(),
         // app development
         okteto::release(),
         skaffold::release(),
@@ -136,9 +168,10 @@ fn releases() -> Vec<Package> {
         ko::release(),
         protoc::release(),
         copilot_cli::release(),
-        ssvmup::release(),
+        rustwasmc::release(),
         // cloud native, kubernetes
         rancher::release(),
+        rancher_cli::release(),
         velero::release(),
         helm::release(),
         helmfile::release(),
@@ -186,6 +219,13 @@ fn releases() -> Vec<Package> {
         camel_k::release(),
         keptn::release(),
         kubevirt::release(),
+        kubestr::release(),
+        kube_linter::release(),
+        natscli::release(),
+        kwctl::release(),
+        epinio::release(),
+        hypper::release(),
+        opni::release(),
         // runtime
         containerd::release(),
         firecracker::release(),
@@ -200,10 +240,14 @@ fn releases() -> Vec<Package> {
         // programing
         deno::release(),
         typescript::release(),
+        node::release(),
+        kotlin::release(),
+        gradle::release(),
     ]
 }
 
 async fn update_description(pkg: &mut Package) -> Result<()> {
+    println!("Updating the description of package: {}", pkg);
     let github = Github::new("huber", Credentials::Token(env::var("GITHUB_TOKEN")?))?;
 
     if let PackageSource::Github { owner, repo } = &pkg.source {

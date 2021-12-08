@@ -2,14 +2,14 @@ use std::fs::File;
 use std::path::PathBuf;
 use std::{env, fs};
 
-use hubcaps::Credentials;
+use hubcaps_ex::Credentials;
 use log::LevelFilter;
 use serde::{Deserialize, Serialize};
 
 use crate::log::Logger;
 use crate::model::package::Package;
-use crate::output::OutputFormat;
 use crate::result::Result;
+use libcli_rs::output::OutputFormat;
 
 pub const MANAGED_PKG_ROOT_DIR: &str = "MANAGED_PKG_ROOT_DIR"; // generated directory
 

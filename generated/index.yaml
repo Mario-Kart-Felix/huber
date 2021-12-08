@@ -12,14 +12,23 @@
 - name: bat
   owner: sharkdp
   source: github
+- name: bottom
+  owner: ClementTsang
+  source: github
 - name: camel-k
   owner: apache
   source: github
 - name: chisel
   owner: jpillora
   source: github
+- name: choose
+  owner: theryangeary
+  source: github
 - name: cloak
   owner: evansmurithi
+  source: github
+- name: codeql
+  owner: github
   source: github
 - name: conftest
   owner: open-policy-agent
@@ -33,6 +42,12 @@
 - name: copilot-cli
   owner: aws
   source: github
+- name: coreutils
+  owner: uutils
+  source: github
+- name: cosign
+  owner: sigstore
+  source: github
 - name: croc
   owner: schollz
   source: github
@@ -44,6 +59,9 @@
   source: github
 - name: dasel
   owner: TomWright
+  source: github
+- name: delta
+  owner: dandavison
   source: github
 - name: deno
   owner: denoland
@@ -57,11 +75,26 @@
 - name: doctl
   owner: digitalocean
   source: github
+- name: dog
+  owner: ogham
+  source: github
+- name: dolt
+  owner: dolthub
+  source: github
 - name: drone-cli
   owner: drone
   source: github
+- name: dua-cli
+  owner: Byron
+  source: github
+- name: dust
+  owner: bootandy
+  source: github
 - name: eksctl
   owner: weaveworks
+  source: github
+- name: epinio
+  owner: epinio
   source: github
 - name: exa
   owner: ogham
@@ -84,8 +117,14 @@
 - name: flux2
   owner: fluxcd
   source: github
+- name: fnm
+  owner: Schniz
+  source: github
 - name: fortio
   owner: fortio
+  source: github
+- name: frum
+  owner: TaKO8Ki
   source: github
 - name: gh
   owner: cli
@@ -99,6 +138,12 @@
 - name: gping
   owner: orf
   source: github
+- name: gradle
+  owner: gradle
+  source: github
+- name: grex
+  owner: pemistahl
+  source: github
 - name: helm
   owner: helm
   source: github
@@ -108,14 +153,23 @@
 - name: hetty
   owner: dstotijn
   source: github
+- name: hexyl
+  owner: sharkdp
+  source: github
 - name: hub
   owner: github
   source: github
 - name: huber
   owner: innobead
   source: github
+- name: hugo
+  owner: gohugoio
+  source: github
 - name: hyperfine
   owner: sharkdp
+  source: github
+- name: hypper
+  owner: rancher-sandbox
   source: github
 - name: ignite
   owner: weaveworks
@@ -151,7 +205,7 @@
   owner: alexellis
   source: github
 - name: k6
-  owner: loadimpact
+  owner: k6io
   source: github
 - name: k9s
   owner: derailed
@@ -171,6 +225,9 @@
 - name: kompose
   owner: kubernetes
   source: github
+- name: kotlin
+  owner: JetBrains
+  source: github
 - name: kpt
   owner: GoogleContainerTools
   source: github
@@ -183,11 +240,17 @@
 - name: kube-bench
   owner: aquasecurity
   source: github
+- name: kube-linter
+  owner: stackrox
+  source: github
 - name: kubectl
   owner: kubernetes
   source: github
 - name: kubefire
   owner: innobead
+  source: github
+- name: kubestr
+  owner: kastenhq
   source: github
 - name: kubevirt
   owner: kubevirt
@@ -201,6 +264,9 @@
 - name: kuttl
   owner: kudobuilder
   source: github
+- name: kwctl
+  owner: kubewarden
+  source: github
 - name: lens
   owner: lensapp
   source: github
@@ -210,14 +276,32 @@
 - name: linkerd2-stable
   owner: linkerd
   source: github
+- name: loc
+  owner: cgag
+  source: github
+- name: lsd
+  owner: Peltoche
+  source: github
 - name: minikube
   owner: kubernetes
   source: github
 - name: mkcert
   owner: FiloSottile
   source: github
+- name: nat
+  owner: willdoescode
+  source: github
+- name: natscli
+  owner: nats-io
+  source: github
+- name: navi
+  owner: denisidoro
+  source: github
 - name: nerdctl
-  owner: AkihiroSuda
+  owner: containerd
+  source: github
+- name: node
+  owner: nodejs
   source: github
 - name: nomad
   owner: hashicorp
@@ -234,8 +318,14 @@
 - name: okteto
   owner: okteto
   source: github
+- name: onefetch
+  owner: o2sh
+  source: github
 - name: opa
   owner: open-policy-agent
+  source: github
+- name: opni
+  owner: rancher
   source: github
 - name: oras
   owner: deislabs
@@ -258,11 +348,20 @@
 - name: protoc
   owner: protocolbuffers
   source: github
+- name: pueue
+  owner: Nukesor
+  source: github
 - name: pulumi
   owner: pulumi
   source: github
 - name: rancher
   owner: rancher
+  source: github
+- name: rancher-cli
+  owner: rancher
+  source: github
+- name: renote
+  owner: ecatlabs
   source: github
 - name: rio
   owner: rancher
@@ -276,19 +375,28 @@
 - name: rke2
   owner: rancher
   source: github
+- name: rustwasmc
+  owner: second-state
+  source: github
+- name: sad
+  owner: ms-jpq
+  source: github
+- name: sd
+  owner: chmln
+  source: github
 - name: shadowsocks
   owner: shadowsocks
   source: github
 - name: skaffold
   owner: GoogleContainerTools
   source: github
+- name: skim
+  owner: lotabout
+  source: github
 - name: sonobuoy
   owner: vmware-tanzu
   source: github
 - name: ssvm
-  owner: second-state
-  source: github
-- name: ssvmup
   owner: second-state
   source: github
 - name: starship
@@ -302,6 +410,9 @@
   source: github
 - name: syncthing
   owner: syncthing
+  source: github
+- name: tealdeer
+  owner: dbrgn
   source: github
 - name: tecli
   owner: awslabs
@@ -330,11 +441,17 @@
 - name: typescript
   owner: microsoft
   source: github
+- name: typos
+  owner: crate-ci
+  source: github
 - name: vegeta
   owner: tsenart
   source: github
 - name: velero
   owner: vmware-tanzu
+  source: github
+- name: viddy
+  owner: sachaos
   source: github
 - name: volta
   owner: volta-cli
@@ -360,10 +477,19 @@
 - name: wstunnel
   owner: erebe
   source: github
+- name: xh
+  owner: ducaale
+  source: github
 - name: yq
   owner: mikefarah
   source: github
+- name: zellij
+  owner: zellij-org
+  source: github
 - name: zola
   owner: getzola
+  source: github
+- name: zoxide
+  owner: ajeetdsouza
   source: github
 
