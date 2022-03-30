@@ -7,6 +7,7 @@ OUTPUT_DIR := $(CURDIR)/.output
 HUBER_ARTIFACT := $(shell $(CURDIR)/hack/huber-artifact-name.sh)
 MANAGED_PKG_ROOT_DIR := $(CURDIR)/generated
 PLATFORMS ?= linux/arm64 # for multi arch
+HUBER_BIN=$(CURDIR)/target/debug/huber
 
 .PHONY: help
 help:
@@ -37,7 +38,7 @@ release: ## Release binaries
 
 .PHONY: install
 install: ## Install binaries
-	cargo install $(CARGO_OPTS) --path ./src/app/ --bins
+	cargo install $(CARGO_OPTS) --path ./crates/app/ --bins
 	mkdir -p ~/.huber/bin && cp ~/.cargo/bin/huber ~/.huber/bin && $(CURDIR)/hack/update-env.sh
 
 .PHONY: clean
@@ -52,18 +53,18 @@ fix:  ## Fix code
 .PHONY: generate
 generate: ## Generate managed package list
 	@echo "! Must have GITHUB_TOKEN to automatically generate package description"
-	GITHUB_TOKEN=$(GITHUB_TOKEN) cargo build -vv --manifest-path=./src/generator/Cargo.toml
+	GITHUB_TOKEN=$(GITHUB_TOKEN) cargo build -vv --package=huber-generator
 	GITHUB_KEY=$(GITHUB_KEY) $(MAKE) build && \
-	(MANAGED_PKG_ROOT_DIR=$(CURDIR)/generated $(CURDIR)/target/debug/huber search | xargs -0 $(CURDIR)/hack/generate-packages.md.sh)
+	(MANAGED_PKG_ROOT_DIR=$(CURDIR)/generated $(HUBER_BIN) search | xargs -0 $(CURDIR)/hack/generate-packages.md.sh)
 
 .PHONY: checksum
 checksum: ## Generate checksum files for built executables
 	$(CURDIR)/hack/generate-checksum.sh $(BUILD_DIR)
 
 .PHONY: udep
-udep: ## Check undepedencies
+udep: ## Check unused depedencies
 	cargo install cargo-udeps --locked
-	cargo +nightly udeps  --workspace --exclude=huber-generator
+	cargo +nightly udeps --workspace --exclude=huber-generator
 
 .PHONY: build-multiarch
 build-multiarch: ## Build binaries for linux multiple architectures
@@ -75,13 +76,16 @@ release-multiarch: ## Release binaries for linux multiple archite
 	mkdir -p $(BUILD_DIR) && cp $(OUTPUT_DIR)/target/huber-* $(BUILD_DIR)/
 	$(MAKE) checksum
 
-HUBER ?= huber
 .PHONY: verify
 verify: ## Verify Huber commands via the local package generated folder
-	MANAGED_PKG_ROOT_DIR=$(MANAGED_PKG_ROOT_DIR) $(HUBER) $(CMD)
+	MANAGED_PKG_ROOT_DIR=$(MANAGED_PKG_ROOT_DIR) $(HUBER_BIN) $(CMD)
+
+.PHONY: verify-compatible
+verify-compatible: ## Verify the current Huber commands via the local package generated folder
+	MANAGED_PKG_ROOT_DIR=$(MANAGED_PKG_ROOT_DIR) $(shell which huber) $(CMD)
 
 .PHONY: publish
 publish: ## Publish Huber to crates.io
-	cargo publish $(CARGO_OPTS) --manifest-path=./src/common/Cargo.toml || true
-	sleep 10 && cargo publish $(CARGO_OPTS) --manifest-path=./src/procmacro/Cargo.toml || true
-	sleep 10 && cargo publish $(CARGO_OPTS) --manifest-path=./src/app/Cargo.toml || true
+	cargo publish $(CARGO_OPTS) --manifest-path=./crates/common/Cargo.toml || true
+	sleep 10 && cargo publish $(CARGO_OPTS) --manifest-path=./crates/procmacro/Cargo.toml || true
+	sleep 10 && cargo publish $(CARGO_OPTS) --manifest-path=./crates/app/Cargo.toml || true

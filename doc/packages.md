@@ -17,12 +17,13 @@
  containerd       An open and reliable container runtime                                                                   https://github.com/containerd/containerd 
  copilot-cli      The AWS Copilot CLI is a tool for developers to build, release and operate production ready containe...  https://github.com/aws/copilot-cli 
  coreutils        Cross-platform Rust rewrite of the GNU coreutils                                                         https://github.com/uutils/coreutils 
+ cosign           Container Signing                                                                                        https://github.com/sigstore/cosign 
  croc             Easily and securely send things from one computer to another :crocodile: :package:                       https://github.com/schollz/croc 
  ctlptl           Making local Kubernetes clusters fun and easy to set up                                                  https://github.com/tilt-dev/ctlptl 
  czkawka          Multi functional app to find duplicates, empty folders, similar images etc.                              https://github.com/qarmin/czkawka 
  dasel            Select, put and delete data from JSON, TOML, YAML, XML and CSV files with a single tool. Supports co...  https://github.com/TomWright/dasel 
- delta            A viewer for git and diff output                                                                         https://github.com/dandavison/delta 
- deno             A secure JavaScript and TypeScript runtime                                                               https://github.com/denoland/deno 
+ delta            A syntax-highlighting pager for git, diff, and grep output                                               https://github.com/dandavison/delta 
+ deno             A modern runtime for JavaScript and TypeScript.                                                          https://github.com/denoland/deno 
  direnv           unclutter your .profile                                                                                  https://github.com/direnv/direnv 
  dive             A tool for exploring each layer in a docker image                                                        https://github.com/wagoodman/dive 
  doctl            The official command line interface for the DigitalOcean API.                                            https://github.com/digitalocean/doctl 
@@ -49,9 +50,10 @@
  gping            Ping, but with a graph                                                                                   https://github.com/orf/gping 
  gradle           Adaptable, fast automation for all                                                                       https://github.com/gradle/gradle 
  grex             A command-line tool and library for generating regular expressions from user-provided test cases         https://github.com/pemistahl/grex 
+ grpcurl          Like cURL, but for gRPC: Command-line tool for interacting with gRPC servers                             https://github.com/fullstorydev/grpcurl 
  helm             The Kubernetes Package Manager                                                                           https://github.com/helm/helm 
  helmfile         Deploy Kubernetes Helm Charts                                                                            https://github.com/roboll/helmfile 
- hetty            Hetty is an HTTP toolkit for security research.                                                          https://github.com/dstotijn/hetty 
+ hetty            An HTTP toolkit for security research.                                                                   https://github.com/dstotijn/hetty 
  hexyl            A command-line hex viewer                                                                                https://github.com/sharkdp/hexyl 
  hub              A command-line tool that makes git easier to use with GitHub.                                            https://github.com/github/hub 
  huber            Huber 📦, simplify the package management from GitHub projects with a built-in awesome list of pop...    https://github.com/innobead/huber 
@@ -61,12 +63,14 @@
  ignite           Ignite a Firecracker microVM                                                                             https://github.com/weaveworks/ignite 
  img              Standalone, daemon-less, unprivileged Dockerfile and OCI compatible container image builder.             https://github.com/genuinetools/img 
  istio            Connect, secure, control, and observe services.                                                          https://github.com/istio/istio 
+ jiq              jid on jq - interactive JSON query tool using jq expressions                                             https://github.com/fiatjaf/jiq 
+ jless            jless is a command-line JSON viewer designed for reading, exploring, and searching through JSON data...  https://github.com/PaulJuliusMartinez/jless 
  jq               Command-line JSON processor                                                                              https://github.com/stedolan/jq 
  just             🤖 Just a command runner                                                                                 https://github.com/casey/just 
  jwt-cli          A super fast CLI tool to decode and encode JWTs built in Rust                                            https://github.com/mike-engel/jwt-cli 
- k0s              k0s - Zero Friction Kubernetes                                                                           https://github.com/k0sproject/k0s 
+ k0s              k0s - The Zero Friction Kubernetes by Team Lens                                                          https://github.com/k0sproject/k0s 
  k3ai             K3ai is a lightweight, fully automated, AI infrastructure-in-a-box solution that allows anyone to ex...  https://github.com/kf5i/k3ai 
- k3d              Little helper to run Rancher Lab's k3s in Docker                                                         https://github.com/rancher/k3d 
+ k3d              Little helper to run CNCF's k3s in Docker                                                                https://github.com/rancher/k3d 
  k3s              Lightweight Kubernetes                                                                                   https://github.com/rancher/k3s 
  k3sup            bootstrap Kubernetes with k3s over SSH < 1 min 🚀                                                        https://github.com/alexellis/k3sup 
  k6               A modern load testing tool, using Go and JavaScript - https://k6.io                                      https://github.com/k6io/k6 
@@ -90,7 +94,7 @@
  kustomize        Customization of kubernetes YAML configurations                                                          https://github.com/kubernetes-sigs/kustomize 
  kuttl            KUbernetes Test TooL (kuttl)                                                                             https://github.com/kudobuilder/kuttl 
  kwctl            Go-to CLI tool for Kubewarden users.                                                                     https://github.com/kubewarden/kwctl 
- lens             Lens - The Kubernetes IDE                                                                                https://github.com/lensapp/lens 
+ lens             Lens - The way the world runs Kubernetes                                                                 https://github.com/lensapp/lens 
  linkerd2-edge    Ultralight, security-first service mesh for Kubernetes. Main repo for Linkerd 2.x.                       https://github.com/linkerd/linkerd2 
  linkerd2-stable  Ultralight, security-first service mesh for Kubernetes. Main repo for Linkerd 2.x.                       https://github.com/linkerd/linkerd2 
  loc              Count lines of code quickly.                                                                             https://github.com/cgag/loc 
@@ -100,7 +104,7 @@
  nat              `ls` alternative with useful info and a splash of color 🎨                                               https://github.com/willdoescode/nat 
  natscli          The NATS Command Line Interface                                                                          https://github.com/nats-io/natscli 
  navi             An interactive cheatsheet tool for the command-line                                                      https://github.com/denisidoro/navi 
- nerdctl          Docker-compatible CLI for containerd, with support for Compose                                           https://github.com/containerd/nerdctl 
+ nerdctl          contaiNERD CTL - Docker-compatible CLI for containerd, with support for Compose, Rootless, eStargz, ...  https://github.com/containerd/nerdctl 
  node             Node.js JavaScript runtime :sparkles::turtle::rocket::sparkles:                                          https://github.com/nodejs/node 
  nomad            Nomad is an easy-to-use, flexible, and performant workload orchestrator that can deploy a mix of mic...  https://github.com/hashicorp/nomad 
  norouter         NoRouter: IP-over-Stdio. The easiest multi-host & multi-cloud networking ever. No root privilege is ...  https://github.com/norouter/norouter 
@@ -109,7 +113,7 @@
  okteto           Develop your applications directly in your Kubernetes Cluster                                            https://github.com/okteto/okteto 
  onefetch         Git repository summary on your terminal                                                                  https://github.com/o2sh/onefetch 
  opa              An open source, general-purpose policy engine.                                                           https://github.com/open-policy-agent/opa 
- opni             AIOps for Kubernetes                                                                                     https://github.com/rancher/opni 
+ opni             Observability + AIOps for Kubernetes                                                                     https://github.com/rancher/opni 
  oras             ORAS CLI                                                                                                 https://github.com/deislabs/oras 
  pack             CLI for building apps using Cloud Native Buildpacks                                                      https://github.com/buildpacks/pack 
  packer           Packer is a tool for creating identical machine images for multiple platforms from a single source c...  https://github.com/hashicorp/packer 
@@ -118,7 +122,7 @@
  procs            A modern replacement for ps written in Rust                                                              https://github.com/dalance/procs 
  protoc           Protocol Buffers - Google's data interchange format                                                      https://github.com/protocolbuffers/protobuf 
  pueue            :stars: Manage your shell commands.                                                                      https://github.com/Nukesor/pueue 
- pulumi           Pulumi - Modern Infrastructure as Code. Any cloud, any language 🚀                                       https://github.com/pulumi/pulumi 
+ pulumi           Pulumi - Developer-First Infrastructure as Code. Your Cloud, Your Language, Your Way 🚀                  https://github.com/pulumi/pulumi 
  rancher          Complete container management platform                                                                   https://github.com/rancher/rancher 
  rancher-cli      Rancher CLI                                                                                              https://github.com/rancher/cli 
  renote           Renote is to extend GitHub operation experience, which is a complementary tool to use with gh            https://github.com/ecatlabs/renote 
@@ -128,12 +132,13 @@
  rke2                                                                                                                      https://github.com/rancher/rke2 
  rustwasmc        Tool for building Rust functions for Node.js. Combine the performance of Rust, safety and portabilit...  https://github.com/second-state/rustwasmc 
  sad              CLI search and replace | Space Age seD                                                                   https://github.com/ms-jpq/sad 
+ saml2aws         CLI tool which enables you to login and retrieve AWS temporary credentials using a SAML IDP              https://github.com/Versent/saml2aws 
  sd               Intuitive find & replace CLI (sed alternative)                                                           https://github.com/chmln/sd 
  shadowsocks      A Rust port of shadowsocks                                                                               https://github.com/shadowsocks/shadowsocks-rust 
  skaffold         Easy and Repeatable Kubernetes Development                                                               https://github.com/GoogleContainerTools/skaffold 
  skim             Fuzzy Finder in rust!                                                                                    https://github.com/lotabout/skim 
  sonobuoy         Sonobuoy is a diagnostic tool that makes it easier to understand the state of a Kubernetes cluster b...  https://github.com/vmware-tanzu/sonobuoy 
- ssvm             WasmEdge Runtime is a high-performance, extensible, and hardware optimized WebAssembly Virtual Machi...  https://github.com/second-state/SSVM 
+ ssvm             WasmEdge is a lightweight, high-performance, and extensible WebAssembly runtime for cloud native, ed...  https://github.com/second-state/SSVM 
  starship         ☄🌌️  The minimal, blazing-fast, and infinitely customizable prompt for any shell!                        https://github.com/starship/starship 
  stern            ⎈ Multi pod and container log tailing for Kubernetes                                                     https://github.com/wercker/stern 
  submariner       Submariner's Operator installs and maintains your Submariner deployment.                                 https://github.com/submariner-io/submariner-operator 
@@ -143,7 +148,7 @@
  termshark        A terminal UI for tshark, inspired by Wireshark                                                          https://github.com/gcla/termshark 
  terraform        Terraform enables you to safely and predictably create, change, and improve infrastructure. It is an...  https://github.com/hashicorp/terraform 
  terrascan        Detect compliance and security violations across Infrastructure as Code to mitigate risk before prov...  https://github.com/accurics/terrascan 
- tilt             A multi-service dev environment for teams on Kubernetes                                                  https://github.com/tilt-dev/tilt 
+ tilt             Define your dev environment as code. For microservice apps on Kubernetes.                                https://github.com/tilt-dev/tilt 
  tokei            Count your code, quickly.                                                                                https://github.com/XAMPPRocky/tokei 
  tracee           Linux Runtime Security and Forensics using eBPF                                                          https://github.com/aquasecurity/tracee 
  trivy            Scanner for vulnerabilities in container images, file systems, and Git repositories, as well as for ...  https://github.com/aquasecurity/trivy 
@@ -151,17 +156,17 @@
  typos            Source code spell checker                                                                                https://github.com/crate-ci/typos 
  vegeta           HTTP load testing tool and library. It's over 9000!                                                      https://github.com/tsenart/vegeta 
  velero           Backup and migrate Kubernetes applications and their persistent volumes                                  https://github.com/vmware-tanzu/velero 
- viddy            👀  Modern watch command. Time machine and pager etc.                                                    https://github.com/sachaos/viddy 
+ viddy            👀 A modern watch command. Time machine and pager etc.                                                   https://github.com/sachaos/viddy 
  volta            Volta: JS Toolchains as Code. ⚡                                                                         https://github.com/volta-cli/volta 
  wabt             The WebAssembly Binary Toolkit                                                                           https://github.com/WebAssembly/wabt 
- wasm-to-oci      Use OCI registries to distribute WASM modules                                                            https://github.com/engineerd/wasm-to-oci 
+ wasm-to-oci      Use OCI registries to distribute Wasm modules                                                            https://github.com/engineerd/wasm-to-oci 
  wasme            Web Assembly tools and SDKs for extending cloud-native infrastructure                                    https://github.com/solo-io/wasm 
  wasmer           🚀 The leading WebAssembly Runtime supporting WASI and Emscripten                                        https://github.com/wasmerio/wasmer 
  wasmtime         Standalone JIT-style runtime for WebAssembly, using Cranelift                                            https://github.com/bytecodealliance/wasmtime 
  waypoint         A tool to build, deploy, and release any application on any platform.                                    https://github.com/hashicorp/waypoint 
  wstunnel         Tunneling over websocket protocol - Static binary available                                              https://github.com/erebe/wstunnel 
  xh               Friendly and fast tool for sending HTTP requests                                                         https://github.com/ducaale/xh 
- yq               yq is a portable command-line YAML processor                                                             https://github.com/mikefarah/yq 
+ yq               yq is a portable command-line YAML, JSON and XML processor                                               https://github.com/mikefarah/yq 
  zellij           A terminal workspace with batteries included                                                             https://github.com/zellij-org/zellij 
  zola             A fast static site generator in a single binary with everything built-in. https://www.getzola.org        https://github.com/getzola/zola 
  zoxide           A smarter cd command. Supports all major shells.                                                         https://github.com/ajeetdsouza/zoxide 

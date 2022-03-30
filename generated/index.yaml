@@ -144,6 +144,9 @@
 - name: grex
   owner: pemistahl
   source: github
+- name: grpcurl
+  owner: fullstorydev
+  source: github
 - name: helm
   owner: helm
   source: github
@@ -179,6 +182,12 @@
   source: github
 - name: istio
   owner: istio
+  source: github
+- name: jiq
+  owner: fiatjaf
+  source: github
+- name: jless
+  owner: PaulJuliusMartinez
   source: github
 - name: jq
   owner: stedolan
@@ -380,6 +389,9 @@
   source: github
 - name: sad
   owner: ms-jpq
+  source: github
+- name: saml2aws
+  owner: Versent
   source: github
 - name: sd
   owner: chmln
