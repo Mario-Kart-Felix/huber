@@ -35,7 +35,7 @@ tokio = { version = "1.16", features = ["full"] } # reqwest 0.10, hubcaps 0.6 do
 hubcaps-ex = "0.6.2"
 compress-tools = "0.11"
 derive_more = "=0.99.13" # remove = until https://github.com/OSSystems/compress-tools-rs/pull/58 merged
-regex = "1.4.1"
+regex = "1.5.5"
 futures = "0.3"
 async-trait = "0.1.41"
 git2 = "0.13"
